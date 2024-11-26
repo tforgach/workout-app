@@ -7,7 +7,8 @@ const initializeSchema = () => {
             CREATE TABLE IF NOT EXISTS Users (
                 user_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT NOT NULL,
-                email TEXT NOT NULL UNIQUE
+                email TEXT NOT NULL UNIQUE,
+                password TEXT NOT NULL
             )
         `);
 
@@ -28,6 +29,7 @@ const initializeSchema = () => {
                 exercise_name TEXT NOT NULL,
                 sets INTEGER,
                 reps INTEGER,
+                rir INTEGER
                 FOREIGN KEY (workout_id) REFERENCES Workouts(workout_id)
             )
         `);

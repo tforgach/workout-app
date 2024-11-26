@@ -1,11 +1,11 @@
 const db = require('./database');
 
 // Add a new user
-const addUser = (username, email) => {
+const addUser = (username, email, password) => {
     return new Promise((resolve, reject) => {
         db.run(
-            `INSERT INTO Users (username, email) VALUES (?, ?)`,
-            [username, email],
+            `INSERT INTO Users (username, email, password) VALUES (?, ?, ?)`,
+            [username, email, password],
             function (err) {
                 if (err) reject(err);
                 else resolve({ userId: this.lastID });
